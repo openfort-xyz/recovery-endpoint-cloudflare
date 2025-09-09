@@ -6,6 +6,12 @@ export interface Env {
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
+    const url = new URL(req.url);
+    
+    if (url.pathname !== '/api/shield-session') {
+      return new Response('Not Found', { status: 404 });
+    }
+    
     try {
       const r = await fetch('https://shield.openfort.io/project/encryption-session', {
         method: 'POST',
