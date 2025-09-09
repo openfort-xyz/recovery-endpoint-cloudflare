@@ -25,12 +25,12 @@ export default {
         }),
       });
 
-      if (!r.ok) return new Response('Failed to authorize user', { status: 502 });
+      if (!r.ok) return new Response('[OPENFORT] Shield failed to authorize keys. Please check your .env keys and try again.', { status: 502 });
 
       const json = await r.json();
       return Response.json({ session: json.session_id });
     } catch (e) {
-      return new Response('Internal server error', { status: 500 });
+      return new Response('[OPENFORT] Shield internal server error. Please contact the Openfort team at https://t.me/openfort', { status: 500 });
     }
   },
 };
