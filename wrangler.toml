@@ -1,0 +1,9 @@
+name = "shield-session"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+[vars]
+# Values are set in the Deploy UI / dashboard
+SHIELD_PUBLISHABLE_KEY = ""
+SHIELD_SECRET_KEY = ""
+SHIELD_ENCRYPTION_SHARE = ""
