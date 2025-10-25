@@ -8,7 +8,7 @@ export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const url = new URL(req.url);
 
-    if (url.pathname !== '/api/shield-session') {
+    if (url.pathname !== '/api/protected-create-encryption-session') {
       console.warn('[OPENFORT] Request to unknown endpoint:', url.pathname);
       return new Response('Not Found', { status: 404 });
     }
@@ -23,7 +23,7 @@ export default {
     }
 
     try {
-      console.log('[OPENFORT] Incoming request to /api/shield-session');
+      console.log('[OPENFORT] Incoming request to /api/protected-create-encryption-session');
 
       const r = await fetch('https://shield.openfort.io/project/encryption-session', {
         method: 'POST',
